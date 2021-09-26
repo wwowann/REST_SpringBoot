@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.NoSuchElementException;
 
 @RestControllerAdvice
-@ResponseStatus
+@ResponseStatus(HttpStatus.BAD_REQUEST)
 public class ExceptionHandlerAdvice {
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<String> invalidCredentials(NullPointerException e){
