@@ -1,19 +1,15 @@
 package com.example.demo.controller;
 
-import com.example.demo.handlerException.InvalidCredentials;
-import com.example.demo.myAnnotations.LoginUser;
-import com.example.demo.service.ArgumentResolver;
 import com.example.demo.service.Authorities;
-import com.example.demo.users.Users;
 import com.example.demo.service.AuthorizationService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 @RestController
-@RequestMapping("/")
+
 public class AuthorizationController {
     AuthorizationService service;
 
