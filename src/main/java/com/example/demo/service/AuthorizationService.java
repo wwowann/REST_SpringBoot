@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.handlerException.InvalidCredentials;
 import com.example.demo.handlerException.UnauthorizedUser;
 import com.example.demo.usersRepository.UsersRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
