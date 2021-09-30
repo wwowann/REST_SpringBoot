@@ -6,7 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.example.demo")
+@ComponentScan(basePackages = "com.example.demo")
 public class RestApplication {
 
 	public static void main(String[] args) {

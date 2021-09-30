@@ -3,21 +3,23 @@ package com.example.demo.service;
 import com.example.demo.handlerException.InvalidCredentials;
 import com.example.demo.handlerException.UnauthorizedUser;
 import com.example.demo.userRepository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public class AuthorizationService {
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public AuthorizationService(UserRepository userRepository) {
+
         this.userRepository = userRepository;
     }
 
-   public List<Authorities> getAuthorities(String name, String password) {
+    public List<Authorities> getAuthorities(String name, String password) {
         if (isEmpty(name) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
         }
-        List<Authorities> userAuthorities = userRepository.getUserAuthorities(name, password);
+        List<Authorities> userAuthorities = userRepository.getAuthorities(name, password);
         if (isEmpty(userAuthorities)) {
             throw new UnauthorizedUser("Unknown name user " + name);
         }
