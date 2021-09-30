@@ -20,7 +20,7 @@ public class UserRepository {
     public List<Authorities> getAuthorities(String userName, String password) {
         if (userName.equals("") || password.equals("")) return new ArrayList<>();
         User user = new User(userName, password);
-        if (userListMap.containsKey(user)) return userListMap.get(user);
+        if (!userListMap.containsKey(user))
         userListMap.put(user, Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE));
         return userListMap.get(user);
     }
