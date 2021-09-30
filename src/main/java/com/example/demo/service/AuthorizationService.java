@@ -6,22 +6,21 @@ import com.example.demo.userRepository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class AuthorizationService {
     private final UserRepository userRepository;
 
     public AuthorizationService(UserRepository userRepository) {
-
         this.userRepository = userRepository;
     }
 
-    public List<Authorities> getAuthorities(String name, String password) {
-        if (isEmpty(name) || isEmpty(password)) {
+    public List<Authorities> getAuthorities(String user, String password) {
+        if (isEmpty(user) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
         }
-        List<Authorities> userAuthorities = userRepository.getAuthorities(name, password);
+        List<Authorities> userAuthorities = userRepository.getAuthorities(user, password);
         if (isEmpty(userAuthorities)) {
-            throw new UnauthorizedUser("Unknown name user " + name);
+            throw new UnauthorizedUser("Unknown name user " + user);
         }
         return userAuthorities;
     }

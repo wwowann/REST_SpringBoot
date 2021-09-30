@@ -18,8 +18,8 @@ public class AuthorizationController {
     }
 
       @GetMapping("/authorize")
-       public List<Authorities> getAuthorities(@RequestParam("name") String name, @RequestParam("password") String password) {
-        return service.getAuthorities(name, password);
+       public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
+        return service.getAuthorities(user, password);
     }
 }
 

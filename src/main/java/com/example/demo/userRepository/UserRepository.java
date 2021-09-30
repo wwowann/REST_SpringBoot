@@ -9,20 +9,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
+@Repository
 public class UserRepository {
-    Map<User, List<Authorities>> userListMap;
+    private final Map<User, List<Authorities>> userListMap;
 
     public UserRepository(Map<User, List<Authorities>> userListMap) {
         this.userListMap = userListMap;
     }
 
-    public List<Authorities> getAuthorities(String name, String password) {
-        if (name.equals("") || password.equals("")) return new ArrayList<>();
-        User user = new User(name, password);
-        if (userListMap.isEmpty()) {
-            userListMap.put(user, Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE));
-        }
+    public List<Authorities> getAuthorities(String userName, String password) {
+        if (userName.equals("") || password.equals("")) return new ArrayList<>();
+        User user = new User(userName, password);
+        if (userListMap.containsKey(user)) return userListMap.get(user);
+        userListMap.put(user, Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE));
         return userListMap.get(user);
     }
 }

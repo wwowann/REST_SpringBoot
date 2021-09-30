@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -11,7 +10,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-@Component
+
 public abstract class ArgumentResolver implements HandlerMethodArgumentResolver {
 
     private final WebArgumentResolver adaptee;
