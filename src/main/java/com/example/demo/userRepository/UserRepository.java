@@ -4,7 +4,6 @@ import com.example.demo.service.Authorities;
 import com.example.demo.user.User;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +16,11 @@ public class UserRepository {
         this.userListMap = userListMap;
     }
 
-    public List<Authorities> getAuthorities(String user, String password) {
-        if (user.equals("") || password.equals("")) return new ArrayList<>();
-        return Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE);
+    public List<Authorities> getAuthorities(String name, String password) {
+        User user = new User(name, password);
+        if (userListMap.containsKey(user)) return userListMap.get(user);
+        return new ArrayList<>();
+
     }
 }
 

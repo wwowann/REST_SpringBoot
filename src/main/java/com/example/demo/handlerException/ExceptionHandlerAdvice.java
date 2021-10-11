@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 
 @RestControllerAdvice
@@ -18,5 +20,9 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> unauthorizedUser(NoSuchElementException e){
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+    @ExceptionHandler(InvocationTargetException.class)
+    public ResponseEntity<String> noAccessPermission(InvocationTargetException e){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
     }
 }

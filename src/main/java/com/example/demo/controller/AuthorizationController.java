@@ -19,9 +19,9 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
+    public List<Authorities> getAuthorities(@RequestParam("name") String name, @RequestParam("password") String password) {
         //в @RequestParam параметры должны соответствовать пропертям
-        return service.getAuthorities(user, password);
+        return service.getAuthorities(name, password);
     }
 
 
