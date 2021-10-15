@@ -16,11 +16,8 @@ public class UserRepository {
         this.userListMap = userListMap;
     }
 
-    public List<Authorities> getAuthorities(String name, String password) {
-        User user = new User(name, password);
+    public List<Authorities> getAuthorities(User user) {
         if (userListMap.containsKey(user)) return userListMap.get(user);
         return new ArrayList<>();
-
     }
 }
-

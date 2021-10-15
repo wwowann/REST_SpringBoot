@@ -1,15 +1,14 @@
 package com.example.demo.user;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-//@Component
+
 public class User {
-    @Value("${com.example.demo.user}")
+//    @Value("${com.example.demo.user}")
     private String name;
-    @Value("${com.example.demo.password}")
+//    @Value("${com.example.demo.password}")
     private String password;
 
     public User(String name, String password) {
